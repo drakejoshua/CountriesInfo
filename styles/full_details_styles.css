@@ -1,0 +1,131 @@
+/* importing the general styles usable in the site */
+@import url(./general.css);
+
+
+/* styling the main/headline section */
+main {
+    padding: 120px var(--marginal-padding);
+    background-image: linear-gradient( 90deg, var(--primary-blue), var(--primary-blue), var(--primary-blue)
+            , transparent ), url(../demo-flag.jpg);
+    background-position: left top, right top;
+    background-size: 100% 100%, 35% 100%;
+    background-repeat: no-repeat;
+}
+main > div#headline {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+main > div#headline > div > h1 {
+    text-transform: capitalize;
+    color: var(--secondary-white);
+    font-size: clamp( 2rem, calc( 2.5vw + 0.5rem ), 4rem );
+    margin: 0px;
+}
+main > div#headline > div > span {
+    color: var(--secondary-white);
+    text-transform: capitalize;
+    font-size: 20px;
+}
+main > div#headline > span {
+    font-size: 25px;
+    color: yellow;
+}
+
+
+
+/* styling the description section */
+section#description {
+    padding: 70px var(--marginal-padding);
+}
+section#description > p {
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+
+
+/* styling the extras section */
+section#extras {
+    padding-block: 0px 70px;
+    padding-inline: var(--marginal-padding);
+}
+div.accordion-item > .accordion-topic {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 20px;
+}
+.accordion-topic > span {
+    font-size: 25px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.accordion-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px 0px;
+    height: 0px;
+    overflow: auto;
+    transition: 1s;
+}
+.accordion-body > figure {
+    inline-size: 45%;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+figure > img {
+    width: 100%;
+    height: auto;
+}
+figure > img.country-flag {
+    border: thin solid var(--accent-gray);
+}
+figure > figcaption {
+    font-style: oblique;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.accordion-topic span.fa-caret-up,
+.accordion-topic.show span.fa-caret-down {
+    display: none;
+}
+.accordion-topic.show ~ .accordion-body {
+    height: 300px;
+    padding-inline: 20px;
+    padding-block: 10px;
+}
+.accordion-topic.show span.fa-caret-up {
+    display: initial;
+}
+
+
+/* adding responsiveness to the page */
+
+/* for medium-devices e.g. tablets */
+@media screen and ( max-width: 1100px ) {
+    main {
+        background-image: linear-gradient( 90deg, var(--primary-blue)
+            , transparent ), url(../demo-flag.jpg);
+        background-size: 90% 100%, cover;
+    }
+
+    section#description > p {
+        font-size: 16px;
+    }
+    .accordion-topic > span {
+        font-size: 20px;
+    }
+}
+
+
+/* for small-devices e.g. phones, iPhones */
+@media screen and ( max-width: 500px ) {
+    .accordion-body > figure {
+        inline-size: 100%;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Some Countries Info</title>
+
+    <!-- link to the styles of the home page -->
+    <link rel="stylesheet" href="./styles/home_style.css">
+
+    <!-- link to the font awesome icons used -->
+    <!-- <script src="https://kit.fontawesome.com/c963c47e7a.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+<body class="data">
+    <nav>
+        <a href="" id="logo">
+            <span class="fas fa-search-location"></span>
+
+            countries.info
+        </a>
+
+        <div>
+            <a href="./index.html" class="nav-link">
+                <span class="fas fa-home"></span>    
+                home
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <h1>starred countries</h1>
+    </main>
+
+    <section>
+        <div id="countries-list-ctn"></div>
+
+        <div id="pagination">
+            <span>made by <a href="">mabawonku joshua</a> </span>
+
+            <div>
+                <span id="previous-page" class="fas fa-arrow-left invalid"></span>
+
+                <span id="page-range"> 1 of 9 </span>
+
+                <span id="next-page" class="fas fa-arrow-right"></span>
+            </div>
+        </div>
+    </section>
+
+    <div id="loading">
+        <div id="loader"></div>
+
+        <span> loading page data... </span>
+    </div>
+
+    <div id="error">
+        <span class="fas fa-exclamation-triangle"></span>
+
+        <span> network error .. reload the page to try again </span>
+    </div>
+
+    <script src="./scripts/starred_script.js"></script>
+</body>
+</html>

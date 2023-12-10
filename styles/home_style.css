@@ -1,0 +1,249 @@
+/* importing the general styles usable in the site */
+@import url(./general.css);
+
+/* styling the main/banner section */
+main {
+    padding: 6.25rem var(--marginal-padding);
+    background-color: var(--primary-blue);
+}
+main > h1 {
+    font-size: clamp( 2rem, calc( 2.5vw + 0.5rem ), 4rem );
+    text-transform: capitalize;
+    text-align: center;
+    margin-block: 0px 50px;
+    color: var(--secondary-white);
+}
+main > form {
+    inline-size: 60%;
+    margin-inline: auto;
+    display: flex;
+}
+main > form > * {
+    font-size: 1rem;
+    padding: 0.625rem 1.25rem;
+    border: none;
+}
+input::placeholder {
+    text-transform: capitalize;
+}
+main > form > input[ type="search" ] {
+    inline-size: 80%;
+    border-radius: 0.625rem 0rem 0rem 0.625rem;
+    background-color: var(--secondary-white);
+}
+main > form > input[ type="submit" ] {
+    inline-size: max-content;
+    border-radius: 0rem 0.625rem 0.625rem 0rem;
+}
+main > form > select {
+    border-inline: thin solid rgb(146, 146, 146);
+    inline-size: max-content;
+    border-radius: 0rem;
+}
+
+
+
+/* styling the countries-list and the pagination */
+
+/* the countries-list */
+section {
+    padding-block: 7.5rem 0rem;
+    padding-inline: var(--marginal-padding);
+}
+section > div#countries-list-ctn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5625rem 0rem;
+    justify-content: space-between;
+}
+section > div#countries-list-ctn > div.country-info {
+    inline-size: 23.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+    border: thin solid lightgray;
+}
+div.country-info > img {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+    border: thin solid var(--accent-gray);
+    border-radius: var(--countries-info-radius);
+}
+div.country-info > div.desc-ctn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0.125rem;
+}
+div.country-info > div.desc-ctn > h2 {
+    margin: 0px;
+    text-transform: capitalize;
+}
+div.country-info > div.desc-ctn > span {
+    color: var(--accent-gray);
+    text-transform: capitalize;
+}
+div.country-info > span {
+    text-transform: capitalize;
+}
+div.country-info > span::before {
+    content: attr(data-desc);
+    font-weight: 600;
+    text-transform: capitalize;
+} 
+div.country-info > div.action-ctn {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-direction: row-reverse;
+    margin-block-start: 0.9375rem;
+}
+div.country-info > div.action-ctn > a {
+    display: inline-block;
+    flex-grow: 1;
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-blue);
+    color: var(--secondary-white);
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--countries-info-radius);
+    transition: background-color 0.5s;
+}
+div.country-info > div.action-ctn > span {
+    font-size: 1.25rem;
+    color: yellow;
+    border: thin solid lightgray;
+    display: inline-block;
+    padding: 0.4375rem;
+    border-radius: var(--countries-info-radius);
+    transition: transform 0.5s, border-color 0.5s;
+}
+
+
+/* the pagination */
+section > div#pagination {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-block: 1.875rem;
+}
+div#pagination > span {
+    text-transform: capitalize;
+}
+div#pagination > span > a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+div#pagination > div {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+div#pagination > div > span.fas {
+    transition: translate 0.5s;
+}
+div#pagination > div > span.fas.invalid {
+    color: var(--accent-gray);
+    transition: none;
+} 
+
+
+
+/* styling the interactions on the page */
+input[ type="text" ]:focus-visible, input[ type="text" ]:focus {
+    border: thin solid var(--accent-gray);
+    outline: none;
+}
+input[ type="submit" ]:focus-visible, input[ type="submit" ]:focus,
+input[ type="submit" ]:hover {
+    background-color: black;
+    color: white;
+    outline: none;
+}
+div.country-info > div.action-ctn > span:hover, 
+div.country-info > div.action-ctn > span:focus-visible {
+    transform: scale(1.2) rotate(360deg);
+    border-color: var(--accent-blue);
+}
+div.country-info > div.action-ctn > a:hover,
+div.country-info > div.action-ctn > a:focus-visible {
+    background-color: var(--primary-blue);
+}
+div#pagination > div > span.fas:hover {
+    transform: translateX( 3px ) scale( 1.2 );
+}
+div#pagination > div > span.fa-arrow-left:hover {
+    transform: translateX( -3px ) scale( 1.2 );
+}
+div#pagination > div > span.fas.invalid:hover {
+    transform: none;
+}
+
+
+
+/* adding responsiveness to the page */
+
+/* for medium-devices i.e. tablets */
+@media screen and ( max-width: 68.75rem ) {
+
+    /* changing the contries list into a double column list */
+    section > div#countries-list-ctn > div.country-info {
+        inline-size: 48%
+    }
+}
+
+/* for small-devices i.e. phones, iPhones */
+@media screen and ( max-width: 31.25rem ) {
+
+    /* re-arranging the length of the elements of the search form */
+    main > form {
+        inline-size: 100%;
+    }
+    main > form > input[ type="search" ] {
+        inline-size: 50%;
+    }
+    main > form > input[ type="submit" ],
+    main > form > select {
+        inline-size: 25%;
+    }
+
+    /* changing the contries list into a single column list */
+    section > div#countries-list-ctn > div.country-info {
+        inline-size: 100%
+    }
+}
+
+
+/* for interactions */
+@media ( prefers-reduced-motion: reduce ) or ( update: slow ) or ( update: none ) {
+
+    /* removing all the interactions on the page */
+    input[ type="submit" ]:hover {
+        background-color: ButtonFace;
+        color: ButtonText;
+        outline: none;
+    }
+    div.country-info > div.action-ctn > span:hover {
+        transform: none;
+        border-color: lightgray;
+    }
+    div.country-info > div.action-ctn > a:hover {
+        background-color: var(--accent-blue);
+    }
+    div#pagination > div > span.fas:hover {
+        transform: none;
+    }
+    div#pagination > div > span.fa-arrow-left:hover {
+        transform: none;
+    }
+    div#pagination > div > span.fas.invalid:hover {
+        transform: none;
+    }
+}
